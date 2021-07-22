@@ -92,7 +92,7 @@ public class AccountController {
 
 		try {			
 			String result = acctService.transferCredit(fromEmail, toEmail, credit);
-			if(Constants.SUCCESS.equals(result)) {
+			if(Constants.JSON_SUCCESS.equals(result)) {
 				resp.put(Constants.JSON_SUCCESS, Constants.SUCCESS);
 			}else {
 				resp.put(Constants.JSON_SUCCESS, Constants.FAIL);
