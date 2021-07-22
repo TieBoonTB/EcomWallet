@@ -4,7 +4,7 @@ import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "balance")
+@Table(name = "Balance")
 @EntityListeners(AuditingEntityListener.class)
 public class Balance {
 
@@ -13,7 +13,7 @@ public class Balance {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "balanceAmt", columnDefinition="Decimal(20,2)")
+	@Column(name = "balanceAmt", columnDefinition="Decimal(10,2)")
 	private double balanceAmt;
 	
 	@OneToOne(mappedBy = "balance")

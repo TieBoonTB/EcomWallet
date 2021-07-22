@@ -36,6 +36,7 @@ class EcomwalletApplicationTests {
 	@Test
 	public void testFindByEmail() throws Exception {
 		UserAccount testAcct = new UserAccount("test@test.com");
+		testAcct.newAccount();
 		entityManager.persist(testAcct);
 		entityManager.flush();
 		
@@ -50,10 +51,9 @@ class EcomwalletApplicationTests {
 		entityManager.persist(testAcct);
 		entityManager.flush();
 
-		balanceRepo.updateBalance(testAcct.getBalance().getId(), 2000.0);		
-		UserAccount result = accountRepo.findByEmail(testAcct.getEmail());
+		int result = balanceRepo.updateBalance(testAcct.getBalance().getId(), 2000.0);		
 		
-		assertEquals(result.getBalance().getBalanceAmt(), 2000.0);
+		assertEquals(result, 1);
 	}
 
 	@Test

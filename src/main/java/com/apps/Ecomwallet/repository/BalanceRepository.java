@@ -11,7 +11,7 @@ import com.apps.Ecomwallet.model.Balance;
 public interface BalanceRepository extends CrudRepository<Balance, Long> {
 
 	@Modifying
-	@Query("UPDATE balance b SET b.balanceAmt = ?2 WHERE b.id = ?1")
+	@Query("UPDATE Balance b SET b.balanceAmt = ?2 WHERE b.id = ?1")
 	int updateBalance(int id, double balanceAmt);
 
 }

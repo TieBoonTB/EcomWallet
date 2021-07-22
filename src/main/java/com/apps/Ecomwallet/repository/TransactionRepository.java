@@ -11,7 +11,7 @@ import com.apps.Ecomwallet.model.Transaction;
 @Repository
 public interface TransactionRepository extends CrudRepository<Transaction, Long> {
 
-	@Query("SELECT t FROM transaction t WHERE t.fromEmail = ?1 OR t.toEmail = ?1")
+	@Query("SELECT t FROM Transaction t WHERE t.fromEmail = ?1 OR t.toEmail = ?1")
 	List<Transaction> getTransHistory(String email);
 
 }

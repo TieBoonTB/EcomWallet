@@ -18,7 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "transaction")
+@Table(name = "Transaction")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "datetime" }, allowGetters = true)
 public class Transaction {
