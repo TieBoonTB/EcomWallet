@@ -18,6 +18,7 @@ import com.apps.Ecomwallet.model.UserAccount;
 import com.apps.Ecomwallet.repository.AccountRepository;
 import com.apps.Ecomwallet.repository.TransactionRepository;
 import com.apps.Ecomwallet.service.AccountService;
+import com.apps.Ecomwallet.service.AccountServiceImp;
 import com.apps.Ecomwallet.validation.TransactionValidation;
 
 @RestController
@@ -26,6 +27,9 @@ public class AccountController {
 	
 	@Autowired
 	AccountService acctService;
+	
+	@Autowired
+	AccountServiceImp acctServiceImp;
 	
 	@Autowired
 	AccountRepository accountRepo;
@@ -91,7 +95,7 @@ public class AccountController {
 		double credit = Double.parseDouble(inputs.get(Constants.JSON_AMOUNT).toString());
 
 		try {			
-			String result = acctService.transferCredit(fromEmail, toEmail, credit);
+			String result = acctServiceImp.transferCredit(fromEmail, toEmail, credit);
 			if(Constants.JSON_SUCCESS.equals(result)) {
 				resp.put(Constants.JSON_SUCCESS, Constants.SUCCESS);
 			}else {

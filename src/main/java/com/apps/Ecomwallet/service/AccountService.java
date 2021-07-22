@@ -9,6 +9,5 @@ public interface AccountService {
 	
 	public UserAccount createAccount(UserAccount userAccount);
 	public UserAccount getAccount(String email);
-	public String transferCredit(String fromEmail, String toEmail, double credit);
 	public List<Transaction> getTransHistory(String email);
 }
