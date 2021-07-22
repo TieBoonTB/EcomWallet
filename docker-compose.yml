@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  ewallet-sql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=ewallet111
+      - MYSQL_DATABASE=ewalletdb
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=ewallet111
+    volumes:
+      - /data/mysql 
+  ewallet-app:
+    image: ewallet-docker-image
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - ewallet-sql
+    ports:
+      - 8087:8080
+    volumes:
+      - /data/ewallet-app
+    restart: always
